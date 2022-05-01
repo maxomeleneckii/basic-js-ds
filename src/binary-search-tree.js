@@ -1,8 +1,12 @@
-const {
-  Node
-} = require('../extensions/list-tree.js');
-module.exports = class BinarySearchTree {
+const { NotImplementedError } = require('../extensions/index.js');
 
+const { Node } = require('../extensions/list-tree.js');
+
+/**
+ * Implement simple binary search tree according to task description
+ * using Node from extensions
+ */
+class BinarySearchTree {
   constructor() {
     this.rootTree = null;
   }
@@ -53,9 +57,9 @@ module.exports = class BinarySearchTree {
       if (node.data === data) {
         return node;
       }
-      return data < node.data ?
-        searchElement(node.left, data) :
-        searchElement(node.right, data);
+      return data < node.data
+        ? searchElement(node.left, data)
+        : searchElement(node.right, data);
     }
     return searchElement(this.rootTree, data);
   }
@@ -116,3 +120,7 @@ module.exports = class BinarySearchTree {
     return node.data;
   }
 }
+
+module.exports = {
+  BinarySearchTree,
+};
